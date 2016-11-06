@@ -1,20 +1,33 @@
 package domain;
 
-public abstract class Money{
+public class Money{
 
 	protected int amount;
+	protected String currency;
 
 	public Money(int amount) {
 		this.amount = amount;
 	}
 
-	public abstract Money times(int multiplier);
-	public static Dollar dollar(int amount){
-		return new Dollar(amount);
+	public static Money dollar(int amount){
+		Money money = new Money(amount);
+		money.currency = "USD";
+		return money;
 	}
 	
-	public static Franc franc(int amount){
-		return new Franc(amount);
+	public static Money franc(int amount){
+		Money money = new Money(amount);
+		money.currency = "CHF";
+		return money;
+	}
+
+	public String currency() {
+		return this.currency;
+	}
+
+	public Money times(int multiplier) {
+		int result = amount*multiplier;
+		return new Money(result);
 	}
 	
 	@Override
