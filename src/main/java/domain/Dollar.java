@@ -10,8 +10,8 @@ public class Dollar {
 
 	public Dollar times(int multiplier) {
 
-		amount = amount*multiplier;
-		return this;
+		int result = amount*multiplier;
+		return new Dollar(result);
 	}
 
 }
