@@ -5,20 +5,17 @@ public class Money{
 	protected int amount;
 	protected String currency;
 
-	public Money(int amount) {
+	public Money(int amount, String currency) {
 		this.amount = amount;
+		this.currency = currency;
 	}
 
 	public static Money dollar(int amount){
-		Money money = new Money(amount);
-		money.currency = "USD";
-		return money;
+		return new Money(amount, "USD");
 	}
 	
 	public static Money franc(int amount){
-		Money money = new Money(amount);
-		money.currency = "CHF";
-		return money;
+		return new Money(amount, "CHF");
 	}
 
 	public String currency() {
@@ -27,7 +24,7 @@ public class Money{
 
 	public Money times(int multiplier) {
 		int result = amount*multiplier;
-		return new Money(result);
+		return new Money(result, currency);
 	}
 	
 	@Override
@@ -39,10 +36,5 @@ public class Money{
 
 		return amount == dollar.amount;
 
-	}
-	
-	@Override
-	public int hashCode() {
-		return amount;
 	}
 }
