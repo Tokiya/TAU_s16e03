@@ -2,25 +2,25 @@ package domain;
 
 public class Money {
 
-	private int _amount;
-	private String _currency;
+	private int amount;
+	private String currency;
 
 	public String currency() {
-		return _currency;
+		return currency;
 	}
 
 	public Money(int amount) {
-		this._amount = amount;
+		this.amount = amount;
 	}
 
 	public Money(int amount, String currency) {
-		this._amount = amount;
-		this._currency = currency;
+		this.amount = amount;
+		this.currency = currency;
 	}
 
 	public Money times(int multiplier) {
-		int result = _amount * multiplier;
-		return new Money(result,_currency);
+		int result = amount * multiplier;
+		return new Money(result,currency);
 	}
 
 	public static Money dollar(int amount) {
@@ -40,12 +40,14 @@ public class Money {
 
 		Money money = (Money) o;
 
-		return _amount == money._amount && _currency == money._currency;
+		return amount == money.amount && currency == money.currency;
 
 	}
 
-	@Override
-	public int hashCode() {
-		return _amount;
+	public Money plus(Money addend) {
+		
+		return Money.dollar(this.amount+addend.amount);
 	}
+
+	
 }
