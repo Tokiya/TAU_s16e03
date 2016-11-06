@@ -1,21 +1,21 @@
 package domain;
 
-public abstract class Currency{
+public abstract class Money{
 
-	public int amount;
+	protected int amount;
 
-	public Currency(int amount) {
+	public Money(int amount) {
 		this.amount = amount;
 	}
 
-	public abstract Currency times(int multiplier);
+	public abstract Money times(int multiplier);
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		Currency dollar = (Currency) o;
+		Money dollar = (Money) o;
 
 		return amount == dollar.amount;
 
