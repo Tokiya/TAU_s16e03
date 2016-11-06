@@ -1,9 +1,14 @@
 package domain;
 
-public class Money{
 
-	protected int amount;
-	protected String currency;
+public class Money {
+
+	private int amount;
+	private String currency;
+
+	public String currency() {
+		return currency;
+	}
 
 	public Money(int amount, String currency) {
 		this.amount = amount;
@@ -18,23 +23,26 @@ public class Money{
 		return new Money(amount, "CHF");
 	}
 
-	public String currency() {
-		return this.currency;
-	}
-
 	public Money times(int multiplier) {
-		int result = amount*multiplier;
+		int result = amount * multiplier;
 		return new Money(result, currency);
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-		Money dollar = (Money) o;
+		Money money = (Money) o;
 
-		return amount == dollar.amount;
+		return amount == money.amount && currency == money.currency;
 
+	}
+
+	public Money plus(Money addend) {
+		
+		return Money.dollar(this.amount+addend.amount);
 	}
 }
