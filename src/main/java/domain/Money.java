@@ -20,7 +20,7 @@ public class Money {
 
 	public Money times(int multiplier) {
 		int result = amount * multiplier;
-		return new Money(result,currency);
+		return new Money(result, currency);
 	}
 
 	public static Money dollar(int amount) {
@@ -44,10 +44,8 @@ public class Money {
 
 	}
 
-	public Money plus(Money addend) {
-		
-		return Money.dollar(this.amount+addend.amount);
+	public Expression plus(Money addend) {
+		return new Sum(this, addend);
 	}
 
-	
 }
