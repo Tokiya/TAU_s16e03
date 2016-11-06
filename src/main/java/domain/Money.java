@@ -44,8 +44,4 @@ public class Money {
 
 	}
 
-	@Override
-	public int hashCode() {
-		return _amount;
-	}
 }
