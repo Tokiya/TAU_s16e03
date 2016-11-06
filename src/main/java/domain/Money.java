@@ -1,35 +1,51 @@
 package domain;
 
-public abstract class Money{
+public class Money {
 
-	protected int amount;
+	private int _amount;
+	private String _currency;
+
+	public String currency() {
+		return _currency;
+	}
 
 	public Money(int amount) {
-		this.amount = amount;
+		this._amount = amount;
 	}
 
-	public abstract Money times(int multiplier);
-	public static Dollar dollar(int amount){
-		return new Dollar(amount);
+	public Money(int amount, String currency) {
+		this._amount = amount;
+		this._currency = currency;
 	}
-	
-	public static Franc franc(int amount){
-		return new Franc(amount);
+
+	public Money times(int multiplier) {
+		int result = _amount * multiplier;
+		return new Money(result,_currency);
 	}
-	
+
+	public static Money dollar(int amount) {
+		return new Money(amount, "USD");
+	}
+
+	public static Money franc(int amount) {
+		return new Money(amount, "CHF");
+	}
+
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-		Money dollar = (Money) o;
+		Money money = (Money) o;
 
-		return amount == dollar.amount;
+		return _amount == money._amount && _currency == money._currency;
 
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return amount;
+		return _amount;
 	}
 }
