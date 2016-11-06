@@ -1,10 +1,9 @@
 package domain;
 
-public class Dollar extends Currency{
+public class Dollar extends Money{
 
 	public Dollar(int amount) {
 		super(amount);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

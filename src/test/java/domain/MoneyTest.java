@@ -9,11 +9,11 @@ public class MoneyTest {
 	@Test
 	public void testMultiplication() {
 	
-		Dollar five = MoneyFabric.GetDollars(5);
+		Dollar five = Money.dollar(5);
 		Dollar result = five.times(2);
-		assertEquals(MoneyFabric.GetDollars(10), result.amount);
+		assertEquals(Money.dollar(10), result);
 		result = five.times(3);
-		assertEquals(MoneyFabric.GetDollars(15), result.amount);
+		assertEquals(Money.dollar(15), result);
 	
 	}
 	
@@ -21,11 +21,11 @@ public class MoneyTest {
 	@Test
 	public void testFrancMultiplication() {
 	
-		Franc five = MoneyFabric.GetFranc(5);
+		Franc five = Money.franc(5);
 		Franc result = five.times(2);
-		assertEquals(MoneyFabric.GetFranc(10), result.amount);
+		assertEquals(Money.franc(10), result);
 		result = five.times(3);
-		assertEquals(MoneyFabric.GetFranc(15), result.amount);
+		assertEquals(Money.franc(15), result);
 	
 	}
 	
@@ -33,10 +33,10 @@ public class MoneyTest {
 	
 	@Test
 	public void testEquality(){
-		assertEquals(MoneyFabric.GetDollars(5), MoneyFabric.GetDollars(5));
-		assertNotEquals(MoneyFabric.GetDollars(5), MoneyFabric.GetDollars(10));
-		assertEquals(MoneyFabric.GetFranc(5), MoneyFabric.GetFranc(5));
-		assertNotEquals(MoneyFabric.GetFranc(5), MoneyFabric.GetFranc(10));
+		assertEquals(Money.franc(5), Money.franc(5));
+		assertNotEquals(Money.franc(5), Money.franc(10));
+		assertEquals(Money.franc(5), Money.franc(5));
+		assertNotEquals(Money.franc(5), Money.franc(10));
 	}
 	
 
