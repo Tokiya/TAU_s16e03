@@ -11,7 +11,7 @@ public class MoneyTest {
 	
 		Dollar five = new Dollar(5);
 		Dollar result = five.times(2);
-		assertEquals(10, resul.amount);
+		assertEquals(10, result.amount);
 		result = five.times(3);
 		assertEquals(30, result.amount);
 	
